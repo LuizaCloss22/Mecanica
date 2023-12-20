@@ -16,7 +16,6 @@
                     <th scope="col"> Sobrenome </th>
                     <th scope="col"> Email </th>
                     <th scope="col"> Cpf </th>
-                    <th scope="col"> Marcar como concluido </th>
             </thead>
             <tbody>
                 {% for cliente in clientes %}
@@ -30,12 +29,53 @@
                 {% endfor %}
             </tbody>
         </table>
+        <br>
     </div>
     <div>
         <h2>Serviços</h2>
+        <table class="table" style="color: aliceblue;">
+            <thead>
+                <tr>
+                    <th scope="col"> ID </th>
+                    <th scope="col"> Nome </th>
+                    <th scope="col"> Preco </th>
+                    <th scope="col"> Descrição </th>
+            </thead>
+            <tbody>
+                {% for serviço in serviços %}
+                <tr id="{{serviço.id}}">
+                    <td name="id" scope="row">{{ serviço.id }}</td>
+                    <td name="nome" >{{ serviço.nome }}</td>
+                    <td name="preco">{{ serviço.preco }}</td>
+                    <td name="descrição">{{ serviço.descrição }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
     </div>
     <div>
         <h2>Peças</h2>
+        <table class="table" style="color: aliceblue;">
+            <thead>
+                <tr>
+                    <th scope="col"> ID </th>
+                    <th scope="col"> Nome </th>
+                    <th scope="col"> Preco </th>
+                    <th scope="col"> Estoque </th>
+            </thead>
+            <tbody>
+                {% for serviço in serviços %}
+                <tr id="{{serviço.id}}">
+                    <td name="id" scope="row">{{ serviço.id }}</td>
+                    <td name="nome" >{{ serviço.nome }}</td>
+                    <td name="preco">{{ serviço.preco }}</td>
+                    <td name="quantidade">{{ serviço.quantidade }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
     </div>
 </div>
 {% endblock%}

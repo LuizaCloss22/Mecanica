@@ -11,4 +11,4 @@ def listas(request):
     servico = Servicos.objects.all().order_by('preco')
     peca = Pecas.objects.all().order_by('preco')
 
-    return render(request, 'listas.html', {'clientes':clientes, 'servicos':servico, 'pecas':peca})
+    return render(request, 'listas.html', {'clientes':clientes, 'serviços':servico, 'pecas':peca})
