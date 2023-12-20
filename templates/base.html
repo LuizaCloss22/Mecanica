@@ -7,11 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../templates/static/geral/css/base.css">
-    <link rel="stylesheet" href="../templates/static/geral/css/geral.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     {% block 'head' %}{% endblock %}
-
     <title>{% block 'title' %}{% endblock %}</title>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
@@ -27,7 +24,7 @@
   top: 0;
   height: 100%;
   width: 78px;
-  background: var(--dark-color);
+  background: #411f2d;
   padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
@@ -125,7 +122,7 @@
   border: none;
   border-radius: 12px;
   transition: all 0.5s ease;
-  background: var(--main-color);
+  background: #ac4147;
 }
 .sidebar.open input{
   padding: 0 20px 0 50px;
@@ -137,16 +134,16 @@
   left: 0;
   transform: translateY(-50%);
   font-size: 22px;
-  background: var(--main-color);
+  background: #ac4147;
   color: #FFF;
 }
 .sidebar.open .bx-search:hover{
-  background: var(--main-color);
+  background: #ac4147;
   color: #FFF;
 }
 .sidebar .bx-search:hover{
   background: #FFF;
-  color: var(--main-color);
+  color: #ac4147;
 }
 .sidebar li a{
   display: flex;
@@ -156,7 +153,7 @@
   align-items: center;
   text-decoration: none;
   transition: all 0.4s ease;
-  background: var(--main-color);
+  background: #ac4147;
 }
 .sidebar li a:hover{
   background: #FFF;
@@ -177,7 +174,7 @@
 .sidebar li a:hover .links_name,
 .sidebar li a:hover i{
   transition: all 0.5s ease;
-  color: var(--main-color);
+  color: #ac4147;
 }
 .sidebar li i{
   height: 50px;
@@ -192,7 +189,7 @@
   left: 0;
   bottom: -8px;
   padding: 10px 14px;
-  background: var(--main-color);
+  background: #ac4147;
   transition: all 0.5s ease;
   overflow: hidden;
 }
@@ -226,7 +223,7 @@
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  background: var(--main-color);
+  background: #ac4147;
   width: 100%;
   height: 60px;
   line-height: 60px;
@@ -254,7 +251,7 @@
 }
 .home-section .text{
   display: inline-block;
-  color: var(--main-color);
+  color: #ac4147;
   font-size: 25px;
   font-weight: 500;
   margin: 18px
@@ -334,8 +331,30 @@
 
     {% block 'body' %}
     {% endblock %}
-    <script src="{% static 'geral/js/base.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      let sidebar = document.querySelector(".sidebar");
+let closeBtn = document.querySelector("#btn");
+let searchBtn = document.querySelector(".bx-search");
+
+closeBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("open");
+    menuBtnChange();
+});
+
+searchBtn.addEventListener("click", ()=>{ 
+    sidebar.classList.toggle("open");
+    menuBtnChange();
+});
+
+function menuBtnChange() {
+if(sidebar.classList.contains("open")){
+    closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+}else {
+    closeBtn.classList.replace("bx-menu-alt-right","bx-menu");
+}
+}
+    </script>
   </body>
 </html>
