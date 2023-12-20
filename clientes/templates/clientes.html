@@ -2,18 +2,17 @@
 {% load static %}
 
 {% block 'head' %}
-    <link rel="stylesheet" href="{% static 'clientes/css/clientes.css' %}">
 {% endblock %}
 
 {% block 'dashboard' %}
     <div class="container">
         <div class="row">
             <div onclick="exibir_form('1')" class="col-md card-dashboard">
-                <p class="text-card">Adicionar clientes</p>
+                <p class="btn btn-danger">Adicionar clientes</p>
             </div> 
 
             <div onclick="exibir_form('2')" class="col-md card-dashboard">
-                <p class="text-card">Atualizar clientes</p>
+                <p class="btn btn-danger">Atualizar clientes</p>
             </div> 
 
         </div>
@@ -39,8 +38,7 @@
                 <hr style="background-color:gray;">
                 <div class="add-carros">
                     <h3>Carros</h3>
-                    <span class="btn-add-carros" onclick="add_carro()">+ Adicionar um carro</span>
-                    #TODO: remover carros
+                    <span class="btn btn-success" onclick="add_carro()">+ Adicionar um carro</span>
                     <div id="form-carro">
                         {% for carro, placa, ano in carros%}
                             <br>
