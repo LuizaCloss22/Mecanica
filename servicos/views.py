@@ -26,7 +26,7 @@ def servicos(request):
                 descrição = descricao_servico
             )
             servico.save()
-    return HttpResponse('aham')
+    return render(request, 'servicos.html')
 
 def pecas(request):
     if request.method == 'GET':
@@ -45,6 +45,6 @@ def pecas(request):
                 quantidade = estoque_peca
             )
             peca.save()
-    return HttpResponse('Peça adicionada')
+    return render(request, 'pecas.html')
         
 
