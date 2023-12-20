@@ -8,5 +8,6 @@ urlpatterns = [
     path('clientes/', include('clientes.urls')),
     path('servicos/', include('servicos.urls')),
     path('equipe/', include('equipe.urls')),
-    path('pedido/', include('pedido.urls'))
+    path('pedido/', include('pedido.urls')),
+    path('lista/', views.listas, name='listas')
 ]

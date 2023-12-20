@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block 'dashboard' %}
+<div class="container">
+    <div>
+        <h1>Listas</h1>
+    </div>
+    <div>
+        <h2>Clientes</h2>
+        <table class="table" style="color: aliceblue;">
+            <thead>
+                <tr>
+                    <th scope="col"> ID </th>
+                    <th scope="col"> Nome </th>
+                    <th scope="col"> Sobrenome </th>
+                    <th scope="col"> Email </th>
+                    <th scope="col"> Cpf </th>
+                    <th scope="col"> Marcar como concluido </th>
+            </thead>
+            <tbody>
+                {% for cliente in clientes %}
+                <tr id="{{cliente.id}}">
+                    <td name="id" scope="row">{{ cliente.id }}</td>
+                    <td name="nome" >{{ cliente.nome }}</td>
+                    <td name="sobrenome">{{ cliente.sobrenome }}</td>
+                    <td name="email">{{ cliente.email }}</td>
+                    <td name="cpf">{{ cliente.cpf }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h2>Serviços</h2>
+    </div>
+    <div>
+        <h2>Peças</h2>
+    </div>
+</div>
+{% endblock%}
