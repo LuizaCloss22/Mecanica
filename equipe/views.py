@@ -25,7 +25,7 @@ def add_equipe(request):
                 especialidade = especialidade_equipe
             )
             equipe.save()
-        return HttpResponse('salvou equipe')
+        return render(request, 'equipe.html')
 
 def add_funcionario(request):
     if request.method == 'GET':
@@ -52,4 +52,5 @@ def add_funcionario(request):
                 equipe = equipe_selecionada
             )
             funcionario.save()
-        return HttpResponse('salvou equipe')
+        equipesList = Equipe.objects.all()
+        return render(request, 'funcionario.html', {'equipes' : equipesList})

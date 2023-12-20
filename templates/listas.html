@@ -77,5 +77,29 @@
         </table>
         <br>
     </div>
+    <h2>Funcionarios</h2>
+        <table class="table" style="color: aliceblue;">
+            <thead>
+                <tr>
+                    <th scope="col"> ID </th>
+                    <th scope="col"> Nome </th>
+                    <th scope="col"> Sobrenome </th>
+                    <th scope="col"> Email </th>
+                    <th scope="col"> Cpf </th>
+            </thead>
+            <tbody>
+                {% for funcionario in funcionarios %}
+                <tr id="{{funcionario.id}}">
+                    <td name="id" scope="row">{{ funcionario.id }}</td>
+                    <td name="nome" >{{ funcionario.nome }}</td>
+                    <td name="sobrenome">{{ funcionario.sobrenome }}</td>
+                    <td name="email">{{ funcionario.email }}</td>
+                    <td name="cpf">{{ funcionario.cpf }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+    </div>
 </div>
 {% endblock%}
