@@ -73,8 +73,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-DATABASE_URL = os.environ.get('DATABASE_URL')
-DATABASES['default'] = dj_database_url.parse(DATABASE_URL)
+Database_URL = os.environ.get('DATABASE_URL')
+DATABASES['default'] = dj_database_url.parse(Database_URL)
 #postgres://db_mecanica_user:2BRx5ruugrzYzvBPayphK1OgALfzfTG6@dpg-cm138tq1hbls73adfb80-a.oregon-postgres.render.com/db_mecanica
 
 # Password validation
