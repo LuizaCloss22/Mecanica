@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'clientes/css/clientes.css' %}">
+{% endblock %}
+
+{% block 'dashboard' %}
+    <div class="container">
+        <div class="p-3">
+            <h1>Equipe</h1>
+        </div>
+        <form action="{% url 'equipe:equipes' %}" method="post">{% csrf_token %}
+            <p>Nome da equipe:</p>
+            <input type="text" name="nome" id="nome" class="form-control" placeholder="Defina o nome da equipe">
+            <p>Especialidade</p>
+            <select name="especialidade" id="especialidade" class="form-control">
+                <option value="Mecânica Geral">Mecânica Geral</option>
+                <option value="Mecânica de Motores">Mecânica de Motores</option>
+                <option value="Mecânica Eletrônica">Mecânica Eletrônica</option>
+                <option value="Mecânica de Transmissão">Mecânica de Transmissão</option>
+                <option value="Mecânica de Suspensão e Direção">Mecânica de Suspensão e Direção</option>
+                <option value="Mecânica de Freios">Mecânica de Freios</option>
+                <option value="Mecânica de Ar Condicionado Automotivo">Mecânica de Ar Condicionado Automotivo</option>
+                <option value="Mecânica de Chassis e Estrutura">Mecânica de Chassis e Estrutura</option>
+
+            </select>
+            <br>
+            <button type="submit" class="btn btn-success form-control">Salvar Equipe</button>
+        </form>
+    </div>
+{% endblock%}

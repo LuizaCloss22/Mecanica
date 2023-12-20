@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'clientes/css/clientes.css' %}">
+{% endblock %}
+
+{% block 'dashboard' %}
+<div class="container">
+    <h1>Calendario</h1>
+    <table class="table" style="color: aliceblue;">
+        <thead>
+            <tr>
+                <th scope="col"> ID </th>
+                <th scope="col"> Placa do carro </th>
+                <th scope="col"> Descrição do problema </th>
+                <th scope="col"> Data de inicio </th>
+                <th scope="col"> Equipe responsavel </th>
+                <th scope="col"> Marcar como concluido </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for requisição in requisiçõesIncompletas %}
+            <tr id="{{requisição.id}}">
+                <td name="id" scope="row">{{ requisição.id }}</td>
+                <td name="placa" >{{ requisição.carro }}</td>
+                <td name="descricao">{{ requisição.descricao }}</td>
+                <td name="data_inicio">{{ requisição.data_inicio }}</td>
+                <td name="equipe">{{ requisição.equipe }}</td>
+                <td>
+                    <form action="{% url 'pedido:update' requisição.id %}" method="post">
+                        {% csrf_token %}
+                        <button class="btn btn-success" type="submit">
+                            <i class="bx bxs-check-square"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <h2>Histórico</h2>
+    <table class="table" style="color: aliceblue;">
+        <thead>
+            <tr>
+                <th scope="col"> ID </th>
+                <th scope="col"> Placa do carro </th>
+                <th scope="col"> Descrição do problema </th>
+                <th scope="col"> Data de inicio </th>
+                <th scope="col">Data final</th>
+                <th scope="col"> Equipe responsavel </th>
+                <th scope="col"> Valor Final </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for requisição in requisiçõesCompletas %}
+            <tr>
+                <td name="id" scope="row">{{ requisição.id }}</td>
+                <td name="placa" >{{ requisição.carro }}</td>
+                <td name="descricao">{{ requisição.descricao }}</td>
+                <td name="data_inicio">{{ requisição.data_inicio }}</td>
+                <td name="data_entrega">{{ requisição.data_entrega }}</td>
+                <td name="equipe">{{ requisição.equipe }}</td>
+                <td name="valorFinal">R$ {{ requisição.valor_final}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script src="{% static 'pedido/js/pedido.js' %}"></script>
+{% endblock%}

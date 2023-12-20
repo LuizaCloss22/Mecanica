@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'clientes/css/clientes.css' %}">
+{% endblock %}
+
+{% block 'dashboard' %}
+<div class="container">
+    <div>
+        <h1>Criar Pedido de Reparo</h1>
+    </div>
+    <form action="" method="post">{% csrf_token %}
+        <p>Placa</p>
+        <div class="row">
+            <div class="col-md">
+                <input type="text" name="placa" id="placa" required class="form-control">
+            </div>
+            <div class="col-md">
+                <p class="btn btn-success" onclick="dados_carros()">Achar carro</p>
+            </div>
+        </div>
+        <div id="carro_form" style="display: none;">
+            <input type="number" name="id_carro" id="id_carro" hidden>
+            <input type="number" name="id_cliente" id="id_cliente" hidden>
+            <div class="row">
+                <div class="col-md">
+                    <p>Nome do carro:</p>
+                    <input type="text" class="form-control btn-outline-light" id="nome" disabled>
+                </div>
+                <div class="col-md">
+                    <p>Ano:</p>
+                    <input type="number" name="" id="ano" class="form-control btn-outline-light" disabled>
+                </div>
+            </div>
+            <div>
+                <p>Proprietario</p>
+                <input type="text" class="form-control btn-outline-light" id="cliente" disabled>
+            </div>
+        </div>
+        <hr>
+        <p>Descrição do Serviço</p>
+        <textarea rows="6" class="form-control" name="descricao_servico" id="descricao_serv"></textarea>
+        <div class="row">
+            <div class="col-md">
+                <p>Equipe:</p>
+                <select name="equipe" id="equipe" class="form-control">
+                    <option value="">Selecione uma Equipe...</option>
+                    {% for equipe in equipes %}
+                    <option value="{{ equipe.id }}">{{ equipe.nome }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md">
+                <p>Data:</p>
+                <input type="date" name="data" id="data" class="form-control">
+            </div>
+        </div>
+        <br>
+        <button class="form-control btn btn-success" type="submit">Fazer Pedido</button>
+    </form>
+</div>
+<script src="{% static 'pedido/js/pedido.js' %}"></script>
+{% endblock%}

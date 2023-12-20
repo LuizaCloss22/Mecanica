@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'clientes/css/clientes.css' %}">
+{% endblock %}
+
+{% block 'dashboard' %}
+<div class="container">
+    <h1>Fazer update de serviço</h1>
+    <div>
+        <form action="{% url 'pedido:finalizar' %}" method="post">{% csrf_token %}
+            <input type="text" name="id" value="{{data.id}}" hidden>
+            <div class="border border-danger">
+                <div class="container p-3">
+                    <div class="row">
+                        <div class="col-md">
+                            <p>Placa do carro:</p>
+                            <input name="carro" class="form-control" type="text" value="{{carro}}">
+                        </div>
+                        <div class="col-md">
+                            <p>Data da manutenção:</p>
+                            <input name="data_inicio" class="form-control" type="date" value="{{data.fields.data_inicio}}">
+                        </div>
+                        <div class="col-md">
+                            <p>Equipe responsavel:</p>
+                            <input name="equipe" class="form-control" type="text" value="{{equipe}}">
+                        </div>
+                    </div>
+                    <p>Descrição do problema:</p>
+                    <textarea class="form-control" name="descricao">{{data.fields.descricao}}</textarea>
+                </div>
+            </div>
+            <div class="container p-3">
+                <p>Data de entrega:</p>
+                <input class="form-control" type="date" name="data_entrega" id="data_entrega">
+                <div class="row">
+                    <div class="col-md">
+                        <p>Peça utilizada</p>
+                        <select class="form-control" name="peca" id="">
+                            {% for peca in pecas%}
+                            <option value="{{peca.id}}">{{peca.nome}} - R$ {{peca.preco}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md">
+                        <p>Quantidade</p>
+                        <input name="quantidade" class="form-control" type="number">
+                    </div>
+                </div>
+                <p>Serviço Prestado</p>
+                <select class="form-control" name="servico" id="">
+                    {% for servico in servicos %}
+                    <option value="{{servico.id}}">{{servico.nome}} - R$ {{servico.preco}}</option>
+                    {% endfor %}
+                </select>
+                <br>
+                <button class="btn btn-success form-control" type="submit">Finalizar Serviço</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock%}

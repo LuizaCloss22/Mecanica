@@ -1,0 +1,89 @@
+{% load static %}
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'geral/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'geral/css/geral.css' %}">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    {% block 'head' %}{% endblock %}
+
+    <title>{% block 'title' %}{% endblock %}</title>
+  </head>
+  <body>
+    
+    <div class="sidebar">
+        <div class="logo-details">
+            <div class="logo_name">Mecânica</div>
+            <i class='bx bx-menu' id="btn" ></i>
+        </div>
+        <ul class="nav-list">
+          <li>
+            <a href="{% url 'pedido:pedido' %}">
+              <i class='bx bx-grid-alt'></i>
+              <span class="links_name">Fazer pedido</span>
+            </a>
+            <span class="tooltip">Fazer pedido</span>
+          </li>
+          <li>
+          <a href="{% url 'clientes' %}">
+            <i class='bx bxs-user-circle'></i>
+            <span class="links_name">Clientes</span>
+          </a>
+          <span class="tooltip">Clientes</span>
+        </li>
+        <li>
+          <a href="{% url 'servicos:servicos' %}">
+            <i class='bx bx-bookmarks'></i>
+            <span class="links_name">Serviços</span>
+          </a>
+          <span class="tooltip">Serviços</span>
+        </li>
+        <li>
+          <a href="{% url 'servicos:pecas' %}">
+            <i class='bx bx-folder' ></i>
+            <span class="links_name">Peças</span>
+          </a>
+          <span class="tooltip">Peças</span>
+        </li>
+        <li>
+          <a href="{% url 'equipe:equipes' %}">
+            <i class='bx bx-group'></i>
+            <span class="links_name">Equipe</span>
+          </a>
+          <span class="tooltip">Equipe</span>
+        </li>
+        <li>
+          <a href="{% url 'equipe:funcionario'%}">
+            <i class='bx bx-user-circle'></i>
+            <span class="links_name">Funcionario</span>
+          </a>
+          <span class="tooltip">Funcionario</span>
+        </li>
+        <li>
+          <a href="{% url 'pedido:calendario'%}">
+            <i class='bx bxs-calendar'></i>
+            <span class="links_name">Calendario</span>
+          </a>
+          <span class="tooltip">Calendario</span>
+        </li>
+        </ul>
+      </div>
+      
+      <section class="home-section">
+          {% block 'dashboard'%}
+          {% endblock %}
+
+      </section>
+
+    {% block 'body' %}
+    {% endblock %}
+    <script src="{% static 'geral/js/base.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

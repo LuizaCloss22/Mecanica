@@ -1,0 +1,46 @@
+{% extends "base.html" %} {% load static %} {% block 'head' %}
+<link rel="stylesheet" href="{% static 'servicos/css/servicos.css' %}" />
+{% endblock %} {% block 'dashboard' %}
+  <div id="adicionar_servico" class="container">
+    <form action="{% url 'servicos:servicos' %}" method="post">
+      {% csrf_token %}
+      <h1>Serviços</h1>
+      <div class="row">
+        <div class="col-md">
+          <p>Nome:</p>
+          <input
+            type="text"
+            class="form-control"
+            name="nome_servico"
+            id="nome_servico"
+            placeholder="Nome do serviço"
+          />
+        </div>
+        <div class="col-md">
+          <p>Valor:</p>
+          <input
+            type="number"
+            placeholder="R$0,00"
+            class="form-control"
+            name="preco_servico"
+          />
+        </div>
+      </div>
+      <div>
+        <p>Descrição</p>
+        <textarea
+          class="form-control"
+          name="descricao_servico"
+          id="descricao_servico"
+        ></textarea>
+      </div>
+      <br />
+      <input
+        type="submit"
+        value="Cadastrar"
+        class="btn btn-success form-control"
+      />
+    </form>
+  </div>
+<script src="{% static 'servicos/js/servicos.js' %}"></script>
+{% endblock%}
