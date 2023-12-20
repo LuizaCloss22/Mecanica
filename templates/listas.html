@@ -46,7 +46,7 @@
                 <tr id="{{serviço.id}}">
                     <td name="id" scope="row">{{ serviço.id }}</td>
                     <td name="nome" >{{ serviço.nome }}</td>
-                    <td name="preco">{{ serviço.preco }}</td>
+                    <td name="preco">R${{ serviço.preco }}</td>
                     <td name="descrição">{{ serviço.descrição }}</td>
                 </tr>
                 {% endfor %}
@@ -69,7 +69,7 @@
                 <tr id="{{peca.id}}">
                     <td name="id" scope="row">{{ peca.id }}</td>
                     <td name="nome" >{{ peca.nome }}</td>
-                    <td name="preco">{{ peca.preco }}</td>
+                    <td name="preco">R${{ peca.preco }}</td>
                     <td name="quantidade">{{ peca.quantidade }}</td>
                 </tr>
                 {% endfor %}
