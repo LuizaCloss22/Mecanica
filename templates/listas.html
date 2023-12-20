@@ -109,6 +109,7 @@
                     <th scope="col"> Sobrenome </th>
                     <th scope="col"> Email </th>
                     <th scope="col"> Cpf </th>
+                    <th scope="col"> Equipe </th>
             </thead>
             <tbody>
                 {% for funcionario in funcionarios %}
@@ -118,6 +119,7 @@
                     <td name="sobrenome">{{ funcionario.sobrenome }}</td>
                     <td name="email">{{ funcionario.email }}</td>
                     <td name="cpf">{{ funcionario.cpf }}</td>
+                    <td name="equipe">{{ funcionario.equipe }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
